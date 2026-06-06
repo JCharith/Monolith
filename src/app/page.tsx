@@ -55,7 +55,7 @@ const DATA = {
   },
   SOCIALS: {
     github: "https://github.com/JCharith",
-    linkedin: "https://linkedin.com/in/your-username",
+    linkedin: "https://www.linkedin.com/in/charith-j-5a53012a3/",
     email: "mailto:charithjangam05@gmail.com",
     dossier: "/Charith_J_Personnel_Dossier.pdf"
   },
