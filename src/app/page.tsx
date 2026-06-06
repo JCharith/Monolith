@@ -136,15 +136,7 @@ const DATA = {
 export default function Home() {
   const [copied, setCopied] = useState(false);
   const [bibtexOpen, setBibtexOpen] = useState(false);
-  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
-  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setAvatarUrl(url);
-    }
-  };
 
   // Copy to Clipboard
   const handleCopy = async (text: string) => {
@@ -232,29 +224,12 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8 items-start my-6">
-            {/* AVATAR PLACEHOLDER SLOT */}
-            <label
-              htmlFor="avatar-upload-input"
-              className="w-28 h-32 border border-zinc-900 bg-black/60 hover:bg-zinc-950/40 hover:border-zinc-800 transition-all flex flex-col items-center justify-center text-center p-2 rounded-none shrink-0 relative cursor-pointer group select-none"
+            {/* STATIC AVATAR SLOT */}
+            <div
+              className="w-28 h-32 border border-zinc-900 bg-black/60 flex flex-col items-center justify-center text-center p-2 rounded-none shrink-0 relative group select-none"
             >
-              {avatarUrl ? (
-                <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
-              ) : (
-                <>
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-800/5 to-transparent animate-pulse pointer-events-none"></div>
-                  <Cpu className="w-6 h-6 text-zinc-800 group-hover:text-zinc-600 mb-2" />
-                  <span className="text-[8px] text-zinc-700 group-hover:text-zinc-500 font-bold uppercase tracking-tight">[AVATAR_SECURE]</span>
-                  <span className="text-[7px] text-zinc-800 group-hover:text-zinc-600 font-bold uppercase tracking-tight mt-1">NO_IMAGE</span>
-                </>
-              )}
-            </label>
-            <input
-              type="file"
-              id="avatar-upload-input"
-              accept="image/*"
-              onChange={handleAvatarChange}
-              className="hidden"
-            />
+              <img src="/avatar.png" alt="Avatar" className="w-full h-full object-cover" />
+            </div>
 
             <div className="flex-1 flex flex-col justify-between h-full">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tighter uppercase leading-tight rounded-none">
